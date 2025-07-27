@@ -1,3 +1,8 @@
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
+import { Template as RegularUser } from './pages/regular-user/template/template';
+export const routes: Routes = [
+    {
+        path: '',
+        component: RegularUser
+    }
+];
