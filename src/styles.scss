@@ -6,4 +6,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  transition: all 0.3s ease-in;
+  text-decoration: none;
+}
+
+html{
+  font-size: 0.9em;
 }
