@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
-import { Template as RegularUser } from './pages/regular-user/template/template';
+import { Template as RegularUserTemplate } from './pages/regular-user/template/template';
+
 export const routes: Routes = [
     {
         path: '',
-        component: RegularUser
+        component: RegularUserTemplate,
+        loadChildren: () => import('./pages/regular-user/regular-user.module').then((m) => m.RegularUserModule)
+        
     }
 ];
