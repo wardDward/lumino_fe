@@ -1,3 +1,55 @@
 <div class="root-container">
-    
+    <div class="card">
+        <div class="left-col">
+            a
+            <!-- vector image  -->
+        </div>
+        <div class="right-col">
+            <h1>Create Your Account</h1>
+            <form>
+                <div class="form-container">
+                    <div class="form-row">
+                        <label for="firstname">Firstname</label>
+                        <input type="text" class="firstname" id="firstname">
+                    </div>
+                    <div class="form-row">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="lastname" id="lastname">
+                    </div>
+                </div>
+                <div class="form-container">
+                    <div class="form-row">
+                        <label for="middlename">Middlename</label>
+                        <input type="text" class="middlename" id="middlename">
+                    </div>
+                    <div class="form-row">
+                        <label for="lastname">Suffix</label>
+                        <input type="text" class="suffix" id="suffix">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="text" class="contact" id="contact">
+                </div>
+                <div class="form-container">
+                    <div class="form-row">
+                        <label for="password">Password</label>
+                        <input type="password" class="password" id="password">
+                    </div>
+                    <div class="form-row">
+                        <label for="confirm_password">Re-Type Password</label>
+                        <input type="password" class="confirm_password" id="confirm_password">
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+            <div>
+                <p class="login-account">Already have an account? <a routerLink="/register">Login your account.</a></p>
+            </div>
+        </div>
+    </div>
 </div>
