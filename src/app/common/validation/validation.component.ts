@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-validation',
+  selector: 'validation',
   imports: [],
   templateUrl: './validation.component.html',
   styleUrl: './validation.component.scss'
