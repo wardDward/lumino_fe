@@ -8,7 +8,10 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "type": "component" 
+          "type": "component"
+        },
+        "@schematics/angular:service": {
+          "type": "service"
         }
       },
       "root": "",
@@ -53,6 +56,12 @@
                   "maximumError": "8kB"
                 }
               ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -64,10 +73,11 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.development.ts"
                 }
-              ]
+              ],
+              "outputHashing": "all"
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
