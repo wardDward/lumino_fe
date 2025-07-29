@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { Template as RegularUserTemplate } from './pages/regular-user/template/template';
-import { Login } from './pages/public/login/login';
+import { TemplateComponent as RegularUserTemplate } from './pages/regular-user/template/template.component';
+import { LoginComponent } from './pages/public/login/login.component';
 
 export const routes: Routes = [
     {
         path: 'login',
         title: 'Login',
-        component: Login
+        component: LoginComponent
     },
     {
         path: '',
