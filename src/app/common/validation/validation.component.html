@@ -1,1 +1,5 @@
-<p>validation works!</p>
+@if(getValidationErrors()){
+    <p class="text-danger">
+        {{getValidationErrors()}}
+    </p>
+}
