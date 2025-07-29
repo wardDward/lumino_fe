@@ -30,6 +30,7 @@ input {
     }
 }
 
+
 .card {
     display: flex;
     justify-content: space-between;
@@ -100,17 +101,50 @@ input {
             }
         }
 
-            .login-account {
-                margin-top: 10px;
+        .login-account {
+            margin-top: 10px;
 
-                a {
-                    color: colors.$primaryPink
-                }
-
-                a:hover {
-                    text-decoration: underline;
-                }
+            a {
+                color: colors.$primaryPink
             }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .divider {
+        margin: 40px 0px;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        hr {
+            background: #000;
+            height: 1px;
+            width: 20%;
+        }
+        span{
+            margin:0 10px;
+        }
+    }
+
+    .socials{
+        display: flex;
+        align-items: center;
+        .icon-card{
+            margin: 5px 10px;
+            padding: 10px 5px;
+            border-radius: 5px;
+            border: 1px solid rgb(112, 111, 111);
+            cursor: pointer;
+        }
+
+        .icon-card:hover{
+            border-color: colors.$primaryPink;
+            background-color: colors.$primaryPink;
+        }
     }
 }
 
