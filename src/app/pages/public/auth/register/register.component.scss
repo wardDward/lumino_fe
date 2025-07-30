@@ -136,10 +136,14 @@ input {
         align-items: center;
         .icon-card{
             margin: 5px 10px;
-            padding: 10px 5px;
+            padding: 10px 15px;
             border-radius: 5px;
             border: 1px solid rgb(112, 111, 111);
             cursor: pointer;
+            
+            i{
+                font-size: 16px;
+            }
         }
 
         .icon-card:hover{
