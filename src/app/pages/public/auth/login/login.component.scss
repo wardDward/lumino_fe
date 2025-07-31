@@ -1,6 +1,6 @@
 @use 'colors';
 
-.root-container{
+.root-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@
     background-repeat: no-repeat;
 }
 
-.card{
+.card {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -22,30 +22,32 @@
     padding: 20px;
     border-radius: 10px;
 
-    h1{
-     color: colors.$primaryViolet;
+    h1 {
+        color: colors.$primaryViolet;
     }
 
-    form{
+    form {
         margin-top: 10px;
         width: 100%;
 
-        .form-group{
+        .form-group {
             display: flex;
             flex-direction: column;
             margin-bottom: 10px;
+
             input {
                 padding: 8px 5px;
                 border-radius: 5px;
                 border: 1px solid #6d6c6c;
                 outline: none;
-                &:focus{
+
+                &:focus {
                     border: 2px solid colors.$primaryPink;
                 }
             }
         }
 
-        .submit-btn{
+        .submit-btn {
             width: 100%;
             border: none;
             padding: 8px 5px;
@@ -56,43 +58,86 @@
             cursor: pointer;
         }
 
-        .submit-btn:hover{
+        .submit-btn:hover {
             background: colors.$primaryPink;
         }
     }
 
-    .create-account{
+    .create-account {
         margin-top: 10px;
-        a{
+
+        a {
             color: colors.$primaryPink
         }
-        a:hover{
+
+        a:hover {
             text-decoration: underline;
+        }
+    }
+
+
+    .divider {
+        margin: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        hr {
+            background: #000;
+            height: 1px;
+            width: 20%;
+        }
+
+        span {
+            margin: 0 10px;
+        }
+    }
+
+    .socials {
+        display: flex;
+        align-items: center;
+
+        .icon-card {
+            margin: 5px 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid rgb(112, 111, 111);
+            cursor: pointer;
+
+            i {
+                font-size: 16px;
+            }
+        }
+
+        .icon-card:hover {
+            border-color: colors.$primaryPink;
+            background-color: colors.$primaryPink;
         }
     }
 }
 
-@media (max-width: 1280px){
-    .card{
+@media (max-width: 1280px) {
+    .card {
         width: 40%;
     }
 }
 
 @media (max-width: 1024px) {
-    .card{
+    .card {
         width: 45%;
     }
 }
 
-@media (max-width: 768px){
-    .card{
+@media (max-width: 768px) {
+    .card {
         width: 60%;
     }
 }
 
 
-@media(max-width: 640px){
-    .card{
+@media(max-width: 640px) {
+    .card {
         width: 100%;
     }
 }
