@@ -45,7 +45,10 @@ input {
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         width: 40%;
-        background-color: tan;
+        background-color: colors.$primaryViolet;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .right-col {

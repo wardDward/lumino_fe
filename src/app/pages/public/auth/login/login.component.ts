@@ -30,7 +30,7 @@ export class LoginComponent {
     // PS. add loading set all the markAllTouched if submit failed
     console.log('login test')
     const form = this.form.getRawValue();
-    this.authService.login(form.email!, form.password!)
+    this.authService.login(form)
   }
 }
 
