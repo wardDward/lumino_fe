@@ -1,0 +1,22 @@
+<div class="root-container">
+    <div class="header">
+        <div class="logo">Lumino</div>
+    </div>
+    <div class="content-container">
+        @for(item of items(); track $index){
+            @if(item.type == 'link'){
+                <a class="links" [routerLink]="item.routerLink ?? ''" routerLinkActive="active">{{item.name}}</a>
+            }
+            @if(item.type == 'link_group'){
+                <a (click)="toggleGroup($index)" class="links">{{item.name}}</a>
+                @if(isGroupOpen($index)){
+                      <div class="link_group">
+                        @for(i of item.items; track $index){
+                            <a class="links nested_links" [routerLink]="i.routerLink" routerLinkActive="true">{{i.name}}</a>
+                        }
+                </div>
+                }
+            }
+        }
+    </div>
+</div>
