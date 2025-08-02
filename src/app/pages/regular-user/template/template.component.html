@@ -1,2 +1,7 @@
-<p>template works!</p>
-<router-outlet/>
+<div class="root-container">
+    <sidebar [items]="links" [isOpen]="isSidebarOpen()" (toggled)="onSidebarToggled($event)"/>
+    <div class="content">
+        <app-navigation/>
+        <router-outlet/>
+    </div>
+</div>

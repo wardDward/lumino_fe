@@ -14,8 +14,8 @@ export class LoginComponent {
 
   constructor(private authService:AuthService){}
   form = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.maxLength(100)]),
-    password: new FormControl('', [Validators.maxLength(100)])
+    email: new FormControl('', [Validators.required ,Validators.email, Validators.maxLength(100)]),
+    password: new FormControl('', [Validators.required ,Validators.maxLength(100)])
   })
 
   get email() {
@@ -27,7 +27,7 @@ export class LoginComponent {
   }
    
   login(){
-    // PS. add loading set all the markAllTouched if submit failed
+// disable the submit button if not filled up the input
     console.log('login test')
     const form = this.form.getRawValue();
     this.authService.login(form)

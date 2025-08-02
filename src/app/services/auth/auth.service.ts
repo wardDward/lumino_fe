@@ -12,4 +12,5 @@ export class AuthService {
     login(payload:any){
       return this.http.post(`${this.api}/login`, {email:payload.email, password:payload.password}, {observe: 'response'})
     }
+
 }

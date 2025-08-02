@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'validation',
   imports: [],
+  standalone: true,
   templateUrl: './validation.component.html',
   styleUrl: './validation.component.scss'
 })
