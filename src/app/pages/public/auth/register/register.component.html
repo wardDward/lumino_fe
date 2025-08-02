@@ -1,50 +1,109 @@
 <div class="root-container">
     <div class="card">
         <div class="left-col">
-            <img src="assets/images/vector/registration_vector.png"/>
+            <img src="assets/images/vector/registration_vector.png" />
         </div>
         <div class="right-col">
             <h1>Create Your Account</h1>
-            <form>
+            <form [formGroup]="form">
                 <div class="form-container">
                     <div class="form-row">
                         <label for="firstname">Firstname</label>
-                        <input type="text" class="firstname" id="firstname">
+                        <input type="text"
+                            [ngClass]="{'error-border': form.get('first_name')?.invalid && (form.get('first_name')?.touched)}"
+                            id="firstname" formControlName="first_name">
+                        <div class="error-message"
+                            *ngIf="form.get('first_name')?.invalid && form.get('first_name')?.touched">
+                            <p class="text-danger" *ngIf="form.get('first_name')?.errors?.['required']">Firstname is
+                                required</p>
+                            <p class="text-danger" *ngIf="form.get('first_name')?.hasError('maxlength')">Maximun of 100
+                                characters are allowed.</p>
+                        </div>
                     </div>
                     <div class="form-row">
                         <label for="lastname">Lastname</label>
-                        <input type="text" class="lastname" id="lastname">
+                        <input type="text"
+                            [ngClass]="{'error-border': form.get('last_name')?.invalid && (form.get('last_name')?.touched)}"
+                            id="lastname" formControlName="last_name">
+                        <div class="error-message"
+                            *ngIf="form.get('last_name')?.invalid && form.get('last_name')?.touched">
+                            <p class="text-danger" *ngIf="form.get('last_name')?.errors?.['required']">Lastname is
+                                required</p>
+                            <p class="text-danger" *ngIf="form.get('last_name')?.errors?.['maxLength']">Maximun of 100
+                                characters are allowed.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="form-container">
                     <div class="form-row">
                         <label for="middlename">Middlename</label>
-                        <input type="text" class="middlename" id="middlename">
+                        <input type="text" class="middlename" id="middlename" formControlName="middle_name">
+                        <div class="error-message" *ngIf="form.get('middle_name')?.errors?.['maxlength']">
+                            <p class="text-danger">Maximun of 100
+                                characters are allowed.</p>
+                        </div>
                     </div>
                     <div class="form-row">
-                        <label for="lastname">Suffix</label>
-                        <input type="text" class="suffix" id="suffix">
+                        <label for="suffix">Suffix</label>
+                        <input type="text" class="suffix" id="suffix" formControlName="suffix">
+                        <div class="error-message" *ngIf="form.get('suffix')?.errors?.['maxlength']">
+                            <p class="text-danger">Maximun of 100
+                                characters are allowed.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="email" id="email">
+                    <input type="email"
+                        [ngClass]="{'error-border': form.get('email')?.invalid && (form.get('email')?.touched)}"
+                        id="email" formControlName="email">
+                    <div class="error-message" *ngIf="form.get('email')?.invalid && (form.get('email')?.touched)">
+                        <p class="text-danger" *ngIf="form.get('email')?.errors?.['required']">Email is required</p>
+                        <p class="text-danger" *ngIf="form.get('email')?.errors?.['maxlength']">Maximum of 100
+                            characters only</p>
+                        <p class="text-danger" *ngIf="form.get('email')?.errors?.['email']">Invalid email.</p>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="contact">Contact</label>
-                    <input type="text" class="contact" id="contact">
+                    <input type="text" class="contact" id="contact" formControlName="contact">
+                    <div class="error-message" *ngIf="form.get('contact')?.invalid && (form.get('email')?.touched)">
+                        <p class="text-danger" *ngIf="form.get('contact')?.errors?.['required']">Contact no#. is
+                            required</p>
+                        <p class="text-danger" *ngIf="form.get('contact')?.errors?.['maxlength']">Maximum of 100
+                            characters only</p>
+                    </div>
                 </div>
                 <div class="form-container">
                     <div class="form-row">
                         <label for="password">Password</label>
-                        <input type="password" class="password" id="password">
+                        <input type="password" class="password" id="password" formControlName="password">
+                        <div class="error-message"
+                            *ngIf="form.get('password')?.invalid && (form.get('password')?.touched)">
+                            <p class="text-danger" *ngIf="form.get('password')?.errors?.['required']">Password is
+                                required</p>
+                            <p class="text-danger" *ngIf="form.get('password')?.errors?.['maxlength']">Maximum of 100
+                                characters only</p>
+                        </div>
                     </div>
                     <div class="form-row">
                         <label for="confirm_password">Re-Type Password</label>
-                        <input type="password" class="confirm_password" id="confirm_password">
+                        <input type="password" class="confirm_password" id="confirm_password"
+                            formControlName="password_confirmation">
+                        <div class="error-message"
+                            *ngIf="form.get('password_confirmation')?.invalid && (form.get('password_confirmation')?.touched)">
+                            <p class="text-danger" *ngIf="form.get('password_confirmation')?.errors?.['required']">
+                                Please confirm your password</p>
+                            <p class="text-danger" *ngIf="form.get('password_confirmation')?.errors?.['maxlength']">
+                                Maximum of 100 characters only</p>
+                        </div>
+                        <div class="error-message"
+                            *ngIf="form.hasError('PasswordNoMatch') && form.get('password_confirmation')?.touched">
+                            <p class="text-danger">Passwords do not match.</p>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="submit-btn">Create Account</button>
+                <button (click)="register()" type="submit" class="submit-btn">Create Account</button>
             </form>
             <div>
                 <p class="login-account">Already have an account? <a routerLink="/login">Login your account.</a></p>
