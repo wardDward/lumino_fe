@@ -11,10 +11,6 @@ import { passwordMismatchValidator } from '../../../../utils/passwordMismatch.va
 })
 export class RegisterComponent {
   
-
-  ngOnInit(){
-    console.log(this.form)
-  }
   form = new FormGroup({
     first_name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
     last_name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
@@ -27,7 +23,7 @@ export class RegisterComponent {
   }, {validators: passwordMismatchValidator})
 
   register() {
-    console.log(this.form)
+    this.form.markAllAsTouched()
   }
 
 }

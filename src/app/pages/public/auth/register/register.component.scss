@@ -89,7 +89,7 @@ input {
                     width: 49%;
 
                     .error-message {
-                        min-height: 1.5em; 
+                        min-height: 1.5em;
                     }
                 }
             }
@@ -103,18 +103,24 @@ input {
             }
 
             .submit-btn {
+                background-color: colors.$primaryViolet;
+                color: white;
                 width: 100%;
                 border: none;
                 padding: 8px 5px;
                 margin-top: 10px;
-                color: white;
-                background: colors.$primaryViolet;
                 font-size: 17px;
                 border-radius: 5px;
-                cursor: pointer;
+
+                &.isDisabled,
+                &:disabled {
+                    background-color: #6d6c6c;
+                    cursor: not-allowed;
+                    color: white;
+                }
             }
 
-            .submit-btn:hover {
+            &:not(:disabled).submit-btn:hover {
                 background: colors.$primaryPink;
             }
         }

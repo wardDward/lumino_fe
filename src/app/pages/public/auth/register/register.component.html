@@ -37,7 +37,9 @@
                 <div class="form-container">
                     <div class="form-row">
                         <label for="middlename">Middlename</label>
-                        <input type="text" class="middlename" id="middlename" formControlName="middle_name">
+                        <input type="text"
+                            [ngClass]="{'error-border': form.get('middle_name')?.invalid && (form.get('middle_name')?.touched)}"
+                            id="middlename" formControlName="middle_name">
                         <div class="error-message" *ngIf="form.get('middle_name')?.errors?.['maxlength']">
                             <p class="text-danger">Maximun of 100
                                 characters are allowed.</p>
@@ -45,7 +47,9 @@
                     </div>
                     <div class="form-row">
                         <label for="suffix">Suffix</label>
-                        <input type="text" class="suffix" id="suffix" formControlName="suffix">
+                        <input type="text"
+                            [ngClass]="{'error-border': form.get('suffix')?.invalid && (form.get('suffix')?.touched)}"
+                            id="suffix" formControlName="suffix">
                         <div class="error-message" *ngIf="form.get('suffix')?.errors?.['maxlength']">
                             <p class="text-danger">Maximun of 100
                                 characters are allowed.</p>
@@ -66,18 +70,22 @@
                 </div>
                 <div class="form-group">
                     <label for="contact">Contact</label>
-                    <input type="text" class="contact" id="contact" formControlName="contact">
+                    <input type="text"
+                        [ngClass]="{'error-border': form.get('contact')?.invalid && (form.get('suffix')?.touched)}"
+                        id="contact" formControlName="contact">
                     <div class="error-message" *ngIf="form.get('contact')?.invalid && (form.get('email')?.touched)">
                         <p class="text-danger" *ngIf="form.get('contact')?.errors?.['required']">Contact no#. is
                             required</p>
-                        <p class="text-danger" *ngIf="form.get('contact')?.errors?.['maxlength']">Maximum of 100
+                        <p class="text-danger" *ngIf="form.get('contact')?.errors?.['maxlength']">Maximum of 13
                             characters only</p>
                     </div>
                 </div>
                 <div class="form-container">
                     <div class="form-row">
                         <label for="password">Password</label>
-                        <input type="password" class="password" id="password" formControlName="password">
+                        <input type="password"
+                            [ngClass]="{'error-border': form.get('password')?.invalid && (form.get('suffix')?.touched)}"
+                            id="password" formControlName="password">
                         <div class="error-message"
                             *ngIf="form.get('password')?.invalid && (form.get('password')?.touched)">
                             <p class="text-danger" *ngIf="form.get('password')?.errors?.['required']">Password is
@@ -88,8 +96,9 @@
                     </div>
                     <div class="form-row">
                         <label for="confirm_password">Re-Type Password</label>
-                        <input type="password" class="confirm_password" id="confirm_password"
-                            formControlName="password_confirmation">
+                        <input type="password"
+                            [ngClass]="{'error-border': form.get('password_confirmation')?.invalid && (form.get('password_confirmation')?.touched)}"
+                            id="confirm_password" formControlName="password_confirmation">
                         <div class="error-message"
                             *ngIf="form.get('password_confirmation')?.invalid && (form.get('password_confirmation')?.touched)">
                             <p class="text-danger" *ngIf="form.get('password_confirmation')?.errors?.['required']">
@@ -103,7 +112,13 @@
                         </div>
                     </div>
                 </div>
-                <button (click)="register()" type="submit" class="submit-btn">Create Account</button>
+                <button type="submit" [disabled]="!form.valid" (click)="register()" [ngClass]="{
+                    'submit-btn': true,
+                    'isDisabled': !form.valid
+                }">
+                    Create Account
+                </button>
+
             </form>
             <div>
                 <p class="login-account">Already have an account? <a routerLink="/login">Login your account.</a></p>
