@@ -4,39 +4,46 @@
         <form [formGroup]="form">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" formControlName="email">
-                <validation [form]="form" controlName="email" [validation]="{
-                    'required': 'Email is required',
-                    'maxLength': 'Email is 100 characters only'
-                }"/> 
+                <input type="email"
+                    [ngClass]="{'error-border': form.get('email')?.invalid && (form.get('email')?.touched)}"
+                    name="email" id="email" formControlName="email">
+                <div class="error-message" *ngIf="form.get('email')?.invalid && (form.get('email')?.touched)">
+                    <p class="text-danger" *ngIf="form.get('email')?.errors?.['required']">Email is required</p>
+                    <p class="text-danger" *ngIf="form.get('email')?.hasError('maxlength')">Maximun of 100
+                        characters are allowed.</p>
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" formControlName="password">
-                <validation [form]="form" controlName="password" [validation]="{
-                    'required': 'Password is required',
-                }"/>
+                <input type="password"
+                    [ngClass]="{'error-border': form.get('password')?.invalid && (form.get('password')?.touched)}"
+                    name="password" id="password" formControlName="password">
+                <div class="error-message" *ngIf="form.get('password')?.invalid && (form.get('password')?.touched)">
+                    <p class="text-danger" *ngIf="form.get('password')?.errors?.['required']">Password is required</p>
+                    <p class="text-danger" *ngIf="form.get('password')?.hasError('maxlength')">Maximun of 100
+                        characters are allowed.</p>
+                </div>
             </div>
             <button (click)="login()" type="submit" class="submit-btn">Log In</button>
         </form>
         <div>
             <p class="create-account">Don't have an account? <a routerLink="/register">Create an account.</a></p>
         </div>
-           <div class="divider">
-                <hr>
-                <span>Or</span>
-                <hr>
+        <div class="divider">
+            <hr>
+            <span>Or</span>
+            <hr>
+        </div>
+        <div class="socials">
+            <div class="icon-card">
+                <i class="pi pi-google"></i>
             </div>
-            <div class="socials">
-                <div class="icon-card">
-                    <i class="pi pi-google"></i>
-                </div>
-                <div class="icon-card">
-                    <i class="pi pi-facebook"></i>
-                </div>
-                <div class="icon-card">
-                    <i class="pi pi-github"></i>
-                </div>
+            <div class="icon-card">
+                <i class="pi pi-facebook"></i>
             </div>
+            <div class="icon-card">
+                <i class="pi pi-github"></i>
+            </div>
+        </div>
     </div>
 </div>
