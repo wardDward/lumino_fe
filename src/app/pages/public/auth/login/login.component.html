@@ -24,7 +24,10 @@
                         characters are allowed.</p>
                 </div>
             </div>
-            <button (click)="login()" type="submit" class="submit-btn">Log In</button>
+            <button [disabled]="!form.valid" (click)="login()" type="submit" [ngClass]="{
+                'submit-btn': true,
+                'isDisabled': !form.valid
+            }">Log In</button>
         </form>
         <div>
             <p class="create-account">Don't have an account? <a routerLink="/register">Create an account.</a></p>

@@ -70,9 +70,16 @@ input {
             font-size: 17px;
             border-radius: 5px;
             cursor: pointer;
+
+            &.isDisabled,
+            &:disabled {
+                background-color: #6d6c6c;
+                cursor: not-allowed;
+                color: white;
+            }
         }
 
-        .submit-btn:hover {
+        &:not(:disabled).submit-btn:hover {
             background: colors.$primaryPink;
         }
     }
