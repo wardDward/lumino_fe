@@ -1,11 +1,11 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent, SidebarItems } from "../../../common/sidebar/sidebar.component";
-import { NavigationComponent } from "../../regular-users/navigation/navigation.component";
+import { HeaderNavigationComponent } from "../components/header-navigation/header-navigation.component";
 
 @Component({
   selector: 'app-template',
-  imports: [RouterOutlet, SidebarComponent, NavigationComponent],
+  imports: [RouterOutlet, SidebarComponent, HeaderNavigationComponent],
   standalone: true,
   templateUrl: './template.component.html',
   styleUrl: './template.component.scss'

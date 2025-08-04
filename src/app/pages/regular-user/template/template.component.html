@@ -1,7 +1,7 @@
 <div class="root-container">
     <sidebar [items]="links" [isOpen]="isSidebarOpen()" (toggled)="onSidebarToggled($event)"/>
     <div class="content">
-        <app-navigation/>
+        <header-navigation/>
         <router-outlet/>
     </div>
 </div>

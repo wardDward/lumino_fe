@@ -11,7 +11,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-
   constructor(private authService:AuthService){}
   form = new FormGroup({
     email: new FormControl('', [Validators.required ,Validators.email, Validators.maxLength(100)]),
@@ -19,12 +18,10 @@ export class LoginComponent {
   })
 
   login(){
-    console.log('login test')
-    const form = this.form.getRawValue();
-    this.authService.login(form)
-
-    // if error just set message to invalid creds
-
+      this.authService.login(this.form.value).subscribe({
+        error: (err) => {console.log("error: " + err);},
+        complete: () => {console.log('complete');}
+      })
   }
 }
 
